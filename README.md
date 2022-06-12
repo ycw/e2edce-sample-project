@@ -20,16 +20,20 @@ A tiny report will print to stdout:
 
 ```
   ┌─────────┬─────────┐
-  │ (index) │   sz    │
+  │ (index) │  size   │
   ├─────────┼─────────┤
   │  entry  │  '5Kb'  │
   │ rollup  │ '734Kb' │
+  │   dce   │ '465Kb' │
   │  build  │ '329Kb' │
   │  gzip   │ '82Kb'  │
   └─────────┴─────────┘
+```
 
-Info: The build included:
-  three^0.141
+The build included:
+
+```
+three^0.141
     WebGLRenderer, Scene, PerspectiveCamera, 
     Vector3, Color,
     DirectionalLight, 
@@ -38,8 +42,8 @@ Info: The build included:
     BackSide, DoubleSide,
     TextureLoader, MirroredRepeatWrapping
 
-  effectcomposer (unrealbloom)
-  orbitcontrol (orbit+zoom by mouse)
+effectcomposer (unrealbloom)
+orbitcontrol (orbit+zoom by mouse)
 ```
 
 Finally, run your favorite http server serving the 'index.html'. 🥳
