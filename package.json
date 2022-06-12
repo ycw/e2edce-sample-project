@@ -10,7 +10,7 @@
   "author": "ycw (http://github.com/ycw)",
   "license": "MIT",
   "dependencies": {
-    "e2edce": "github:ycw/e2edce#v0.0.1",
+    "e2edce": "github:ycw/e2edce#v0.0.2",
     "three": "^0.141.0"
   }
 }
