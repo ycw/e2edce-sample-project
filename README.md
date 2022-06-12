@@ -44,6 +44,6 @@ Finally, run your favorite http server serving the 'index.html'. 🥳
 
 # Credits
 
-[ycw/e2edce](https://github.com/ycw/e2edce)
-[mrdoob/three.js](https://github.com/mrdoob/three.js)
-[chakra(code sample)](https://codepen.io/ycw/pen/QWQVaRb)
+- [ycw/e2edce](https://github.com/ycw/e2edce)
+- [mrdoob/three.js](https://github.com/mrdoob/three.js)
+- [chakra(code sample)](https://codepen.io/ycw/pen/QWQVaRb)
