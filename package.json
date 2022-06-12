@@ -1,0 +1,16 @@
+{
+  "name": "e2edce-sample-project",
+  "version": "0.0.1",
+  "description": "demo project for ycw/e2edce",
+  "type": "module",
+  "scripts": {
+    "build": "e2edce e2edce.config.js"
+  },
+  "keywords": [],
+  "author": "ycw (http://github.com/ycw)",
+  "license": "MIT",
+  "dependencies": {
+    "e2edce": "github:ycw/e2edce#v0.0.1",
+    "three": "^0.141.0"
+  }
+}
