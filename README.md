@@ -2,6 +2,10 @@
 
 e2edce sample project - DCE for threejs app
 
+[Live preview on github page](https://ycw.github.io/e2edce-sample-project/)
+
+Open devtools, switch to network panel ...  ~80Kb(gzip) 😃👍🏻
+
 
 
 # Usage
