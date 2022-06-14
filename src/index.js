@@ -1,7 +1,7 @@
-import { 
-  WebGLRenderer, 
-  Scene, 
-  PerspectiveCamera, 
+import {
+  WebGLRenderer,
+  Scene,
+  PerspectiveCamera,
   Vector3,
   DirectionalLight,
   TextureLoader,

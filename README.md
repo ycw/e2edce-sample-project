@@ -4,49 +4,45 @@ e2edce sample project - DCE for threejs app
 
 [Live preview on github page](https://ycw.github.io/e2edce-sample-project/)
 
-Open devtools, switch to network panel ...  ~80Kb(gzip) 😃👍🏻
-
 
 
 # Usage
 
 First, clone this repo
 
-Then, run `npm i` to install deps (ycw/e2edce and three)
+Then, run `npm i` to install deps.
 
-Then, run `npm run build`, this will create a min. build and a gzipped min. build.
+Then, run `npm run build` to build artifacts.
 
-A tiny report will print to stdout:
+Then, run `npm run serve` to boot http server.
 
-```
-  ┌─────────┬─────────┐
-  │ (index) │  size   │
-  ├─────────┼─────────┤
-  │  entry  │  '5Kb'  │
-  │ rollup  │ '734Kb' │
-  │   dce   │ '465Kb' │
-  │  build  │ '329Kb' │
-  │  gzip   │ '82Kb'  │
-  └─────────┴─────────┘
-```
+Then, visit `http://localhost:8080`.
 
-The build included:
+Then, open console network panel, check size of index.build.js. 😃
 
-```
-three^0.141
-    WebGLRenderer, Scene, PerspectiveCamera, 
-    Vector3, Color,
-    DirectionalLight, 
-    ShaderLib, UniformsUtils,
-    MeshLambertMaterial, MeshBasicMaterial, ShaderMaterial,
-    BackSide, DoubleSide,
-    TextureLoader, MirroredRepeatWrapping
+---
 
-effectcomposer (unrealbloom)
-orbitcontrol (orbit+zoom by mouse)
+Now, try to update `src/index.js` as below
+
+```js
+import { Vector2 } from 'three'
+console.log(new Vector2(0, 1))
 ```
 
-Finally, run your favorite http server serving the 'index.html'. 🥳
+Then, run `npm run build` to build artifacts, stdout shows its 245b(gzipped)
+
+```
+┌─────────┬────────┐
+│ (index) │  size  │
+├─────────┼────────┤
+│ bundle  │ '11Kb' │
+│   dce   │ '5Kb'  │
+│  build  │ '339b' │
+│  gzip   │ '245b' │
+└─────────┴────────┘
+```
+
+Now, refresh `http://localhost:8080`, the vector2 should be logged in console.
 
 
 
