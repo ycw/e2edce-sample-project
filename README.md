@@ -18,18 +18,18 @@ Then, run `npm run serve` to boot http server.
 
 Then, visit `http://localhost:8080`.
 
-Then, open console network panel, check size of index.build.js. 😃
+Then, open devtools network panel, check size of index.build.js. 😃
 
 ---
 
-Now, try to update `src/index.js` as below
+Now, update `src/index.js`:
 
 ```js
 import { Vector2 } from 'three'
 console.log(new Vector2(0, 1))
 ```
 
-Then, run `npm run build` to build artifacts, stdout shows its 245b(gzipped)
+Then, run `npm run build` to build artifacts. Report on stdout:
 
 ```
 ┌─────────┬────────┐
@@ -37,12 +37,15 @@ Then, run `npm run build` to build artifacts, stdout shows its 245b(gzipped)
 ├─────────┼────────┤
 │ bundle  │ '11Kb' │
 │   dce   │ '5Kb'  │
-│  build  │ '339b' │
-│  gzip   │ '245b' │
+│  build  │ '289b' │
+│  gzip   │ '213b' │
 └─────────┴────────┘
 ```
 
-Now, refresh `http://localhost:8080`, the vector2 should be logged in console.
+Then, refresh `http://localhost:8080`
+
+- console should log the vector2
+- content-length of index.build.js should be 213b. 😃
 
 
 
