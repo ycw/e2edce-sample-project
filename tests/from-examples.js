@@ -1,6 +1,9 @@
 /** @param page {import('playwright').Page} */
 export default async (page) => {
-  await page.goto('http://localhost:8081', { waitUntil: 'networkidle' })
+  await page.goto(
+    'http://localhost:8081/public/from-examples/index.html',
+    { waitUntil: 'networkidle' }
+  )
   // resize 
   await page.setViewportSize({ width: 200, height: 200 })
   await page.setViewportSize({ width: 400, height: 400 })

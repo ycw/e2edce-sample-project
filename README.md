@@ -1,56 +1,32 @@
 # About
 
-e2edce sample project - DCE for threejs app
-
-[Live preview on github page](https://ycw.github.io/e2edce-sample-project/)
-
-
-
-# Usage
-
-First, clone this repo
-
-Then, run `npm i` to install deps.
-
-Then, run `npm run build` to build artifacts.
-
-Then, run `npm run serve` to boot http server.
-
-Then, visit `http://localhost:8080`.
-
-Then, open devtools network panel, check size of index.build.js. 😃
-
----
-
-Now, update `src/index.js`:
-
-```js
-import { Vector2 } from 'three'
-console.log(new Vector2(0, 1))
-```
-
-Then, run `npm run build` to build artifacts. Report on stdout:
+A demo project showing how to eliminate deadcode for threejs appliaction by using [ycw/e2ed2e](https://github.com/ycw/e2edce). Here's the [Testbed](https://ycw.github.io/e2edce-sample-project) hosted on github page.
 
 ```
-┌─────────┬────────┐
-│ (index) │  size  │
-├─────────┼────────┤
-│ bundle  │ '11Kb' │
-│   dce   │ '5Kb'  │
-│  build  │ '289b' │
-│  gzip   │ '213b' │
-└─────────┴────────┘
+Logs vector2 ... 97 bytes (gzipped)
+Rotating cube .. 59 Kb (gzipped)
+Chakra ......... 84 Kb (gzipped)
 ```
 
-Then, refresh `http://localhost:8080`
 
-- console should log the vector2
-- content-length of index.build.js should be 213b. 😃
+## Build Locally 
 
+1. Clone this repo
+2. Install deps, `npm i`
+3. Create builds, `npm run build`
+4. Boot http server, `npm run serve`
+5. Check testbed at `http://localhost:8080`
 
+To test your own codes:
 
-# Credits
+1. Put your codes in `src/foo.js`
+2. Write e2e tests in `tests/foo.js`
+3. Config e2edce in `foo.config.js`
+4. Create build, `npm run build:foo` (foo only)
+6. Check result at `http://localhost:8080/public/foo/index.html`
+
+## Credits
 
 - [ycw/e2edce](https://github.com/ycw/e2edce)
 - [mrdoob/three.js](https://github.com/mrdoob/three.js)
-- [chakra(code sample)](https://codepen.io/ycw/pen/QWQVaRb)
+- [chakra](https://codepen.io/ycw/pen/QWQVaRb)

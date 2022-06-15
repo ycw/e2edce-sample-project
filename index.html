@@ -1,12 +1,27 @@
 <link rel="icon" href="data:,">
-<style>
-  canvas {
-    width: 100%;
-    height: 100vh;
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0
-  }
-</style>
-<script defer type='module' src='index.build.js'></script>
+
+<h1>Testbed</h1>
+
+<ul>
+  <li>
+    <a href="public/named-import/index.html">Named import</a> - console logs a lonely vec
+    <blockquote>
+      <code>import { Vector2 } from 'three'</code>
+    </blockquote>
+  </li>
+  <li>
+    <a href="public/full-import/index.html">Full import</a> - official usage "rotating cube"
+    <blockquote>
+      <code>import * as THREE from 'three'</code>
+    </blockquote>
+  </li>
+  <li>
+    <a href="public/from-examples/index.html">From examples</a> - bundle effectcomposer, controls...
+    <blockquote>
+      <code>import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer'</code>
+    </blockquote>
+  </li>
+  <li>
+    <a href="public/foo/index.html">Foo</a> - console logs REVISION
+  </li>
+</ul>
