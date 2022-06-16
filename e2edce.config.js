@@ -3,7 +3,7 @@ import foo_config from './foo.config.js'
 const common = {
   compress: {
     passes: 2,
-    pure_funcs: ['console.warn'],
+    pure_funcs: ['console.warn', 'console.error'],
     global_defs: {
       __THREE_DEVTOOLS__: undefined,
       'window.__THREE__': true
@@ -32,9 +32,15 @@ export default [
   },
   {
     ...common,
-    input: 'src/from-examples.js',
-    output: 'public/from-examples/index.build.js',
-    test: 'tests/from-examples.js',
+    input: 'src/use-examples.js',
+    output: 'public/use-examples/index.build.js',
+    test: 'tests/use-examples.js',
+  },
+  {
+    ...common,
+    input: 'src/force-used.js',
+    output: 'public/force-used/index.build.js',
+    test: 'tests/force-used.js'
   },
   foo_config
 ]
