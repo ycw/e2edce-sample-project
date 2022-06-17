@@ -3,15 +3,42 @@
 A demo project for [ycw/e2ed2e](https://github.com/ycw/e2edce), showing how to 
 eliminate deadcode for threejs appliaction. 
 
-Stats: [live preview](https://ycw.github.io/e2edce-sample-project)
+[Live preview stats](https://ycw.github.io/e2edce-sample-project) 
+(open network panel, check 'content-length' of index.bulid.js for each test)
+
+Stats:
 
 ```
-                                  | min   | min + gz |
-Logs vector2                      | 88b   | 97b      | 😲
-Rotating cube                     | 296Kb | 73Kb     |
-webgl/postprocessing/unrealbloom  | 410Kb | 106Kb    |
-```
+Logs Vector2
+┌─────────┬──────────┐
+│ (index) │   size   │
+├─────────┼──────────┤
+│ bundle  │ '6.33Kb' │
+│   dce   │ '2.03Kb' │
+│  build  │  '88b'   │
+│  gzip   │  '97b'   │
+└─────────┴──────────┘
 
+Rotating Cube
+┌─────────┬────────────┐
+│ (index) │    size    │
+├─────────┼────────────┤
+│ bundle  │ '734.39Kb' │
+│   dce   │ '440.26Kb' │
+│  build  │ '247.96Kb' │
+│  gzip   │ '61.86Kb'  │
+└─────────┴────────────┘
+
+webgl/postprocessing/unrealbloom
+┌─────────┬────────────┐
+│ (index) │    size    │
+├─────────┼────────────┤
+│ bundle  │  '1.06Mb'  │
+│   dce   │ '726.99Kb' │
+│  build  │ '374.93Kb' │
+│  gzip   │ '97.13Kb'  │
+└─────────┴────────────┘
+```
 
 
 
