@@ -29,14 +29,14 @@ Rotating Cube
 │  gzip   │ '61.86Kb'  │
 └─────────┴────────────┘
 
-webgl/postprocessing/unrealbloom
+webgl_shaders_ocean.html
 ┌─────────┬────────────┐
 │ (index) │    size    │
 ├─────────┼────────────┤
-│ bundle  │  '1.06Mb'  │
-│   dce   │ '726.99Kb' │
-│  build  │ '374.93Kb' │
-│  gzip   │ '97.13Kb'  │
+│ bundle  │ '823.91Kb' │
+│   dce   │ '603.59Kb' │
+│  build  │ '337.37Kb' │
+│  gzip   │ '87.69Kb'  │
 └─────────┴────────────┘
 ```
 
