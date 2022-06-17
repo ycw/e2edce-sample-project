@@ -13,8 +13,8 @@ export default {
   }, 
   mangle: true,
   minify: true,
+  debug: false,
 
   headless: true,
-  port: 8081,
-  debug: false
+  port: 8081
 }
