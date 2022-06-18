@@ -3,8 +3,8 @@
 A demo project for [ycw/e2ed2e](https://github.com/ycw/e2edce), showing how to 
 eliminate deadcode for threejs appliaction. 
 
-[Live preview stats](https://ycw.github.io/e2edce-sample-project) 
-(open network panel, check 'content-length' of index.bulid.js for each test)
+[Live preview test results](https://ycw.github.io/e2edce-sample-project)
+(open devtools network panel, check 'index.bulid.js' size for each test)
 
 Stats:
 
@@ -29,6 +29,16 @@ Rotating Cube
 │  gzip   │ '61.86Kb'  │
 └─────────┴────────────┘
 
+Pick Rotating Cube
+┌─────────┬────────────┐
+│ (index) │    size    │
+├─────────┼────────────┤
+│ bundle  │ '737.49Kb' │
+│   dce   │ '454.64Kb' │
+│  build  │ '255.73Kb' │
+│  gzip   │ '64.06Kb'  │
+└─────────┴────────────┘
+
 webgl_shaders_ocean.html
 ┌─────────┬────────────┐
 │ (index) │    size    │
@@ -37,6 +47,16 @@ webgl_shaders_ocean.html
 │   dce   │ '603.59Kb' │
 │  build  │ '337.37Kb' │
 │  gzip   │ '87.69Kb'  │
+└─────────┴────────────┘
+
+cannon-es/examples/threejs_mousepick
+┌─────────┬────────────┐
+│ (index) │    size    │
+├─────────┼────────────┤
+│ bundle  │ '989.81Kb' │
+│   dce   │ '655.31Kb' │
+│  build  │ '325.91Kb' │
+│  gzip   │ '83.62Kb'  │
 └─────────┴────────────┘
 ```
 

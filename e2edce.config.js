@@ -42,5 +42,11 @@ export default [
     output: 'public/force-used/index.build.js',
     test: 'tests/force-used.js'
   },
+  {
+    ...common,
+    input: 'src/use-cannon-es.js',
+    output: 'public/use-cannon-es/index.build.js',
+    test: 'tests/use-cannon-es.js'
+  },
   foo_config
 ]

@@ -1,6 +1,6 @@
 {
   "name": "e2edce-sample-project",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A demo project for ycw/e2edce",
   "type": "module",
   "scripts": {
@@ -16,10 +16,11 @@
   "author": "ycw (http://github.com/ycw)",
   "license": "MIT",
   "dependencies": {
+    "cannon-es": "^0.19.0",
     "three": "^0.141.0"
   },
   "devDependencies": {
-    "e2edce": "github:ycw/e2edce#v0.2.2",
+    "e2edce": "github:ycw/e2edce#v0.2.3",
     "http-server": "^14.1.1",
     "playwright": "^1.22.2"
   }
