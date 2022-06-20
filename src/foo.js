@@ -1,2 +1,2 @@
-import { REVISION } from "three"
+import { REVISION } from 'three'
 console.log(REVISION)

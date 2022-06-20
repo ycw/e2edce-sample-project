@@ -1,7 +1,7 @@
 export default {
 
   inject: () => {
-    new GUI().add({ x: 1 }, 'x', 0, 1).listen(true)
+    new GUI().add({ x: 1 }, 'x', 0, 1).listen()
   },
 
   /** @param page {import('playwright').Page} */

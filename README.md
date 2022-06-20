@@ -20,50 +20,50 @@ Logs Vector2
 ┌─────────┬──────────┐
 │ (index) │   size   │
 ├─────────┼──────────┤
-│ bundle  │ '6.20Kb' │
-│   dce   │ '2.01Kb' │
-│  build  │  '88b'   │
-│  gzip   │  '97b'   │
+│  flat   │ '6.10Kb' │
+│   dce   │ '1.91Kb' │
+│   min   │  '87b'   │
+│ min+gz  │  '96b'   │
 └─────────┴──────────┘
 
 Rotating Cube
 ┌─────────┬────────────┐
 │ (index) │    size    │
 ├─────────┼────────────┤
-│ bundle  │ '692.39Kb' │
-│   dce   │ '411.54Kb' │
-│  build  │ '215.45Kb' │
-│  gzip   │ '53.26Kb'  │
+│  flat   │ '693.53Kb' │
+│   dce   │ '412.68Kb' │
+│   min   │ '218.51Kb' │
+│ min+gz  │ '53.56Kb'  │
 └─────────┴────────────┘
 
 Pick Rotating Cube
 ┌─────────┬────────────┐
 │ (index) │    size    │
 ├─────────┼────────────┤
-│ bundle  │ '695.55Kb' │
-│   dce   │ '425.91Kb' │
-│  build  │ '223.22Kb' │
-│  gzip   │ '55.49Kb'  │
+│  flat   │ '696.50Kb' │
+│   dce   │ '427.08Kb' │
+│   min   │ '226.27Kb' │
+│ min+gz  │ '55.77Kb'  │
 └─────────┴────────────┘
 
 webgl_shaders_ocean.html
 ┌─────────┬────────────┐
 │ (index) │    size    │
 ├─────────┼────────────┤
-│ bundle  │ '776.40Kb' │
-│   dce   │ '574.81Kb' │
-│  build  │ '304.86Kb' │
-│  gzip   │ '79.19Kb'  │
+│  flat   │ '777.52Kb' │
+│   dce   │ '576.02Kb' │
+│   min   │ '307.84Kb' │
+│ min+gz  │ '79.44Kb'  │
 └─────────┴────────────┘
 
 cannon-es/examples/threejs_mousepick
 ┌─────────┬────────────┐
 │ (index) │    size    │
 ├─────────┼────────────┤
-│ bundle  │ '947.86Kb' │
-│   dce   │ '626.50Kb' │
-│  build  │ '293.40Kb' │
-│  gzip   │ '75.07Kb'  │
+│  flat   │ '948.81Kb' │
+│   dce   │ '627.66Kb' │
+│   min   │ '296.49Kb' │
+│ min+gz  │ '75.38Kb'  │
 └─────────┴────────────┘
 ```
 
@@ -91,3 +91,4 @@ To test your own codes:
 
 - [ycw/e2edce](https://github.com/ycw/e2edce)
 - [mrdoob/three.js](https://github.com/mrdoob/three.js)
+- [pmndrs/cannon-es](https://github.com/pmndrs/cannon-es)

@@ -1,7 +1,7 @@
 // ---
 // Base config for threejs
 // - minify glsl src for both ShaderChunk/ and ShaderLib/ 
-// - replace 'three' with 'three/src/Three'
+// - replace import source 'three' with 'three/src/Three'
 // ---
 
 import fs from 'node:fs/promises'
@@ -71,10 +71,10 @@ export async function resolve(source, _importer) {
   source = source.replaceAll('\\', '/') // win
 
   const chunk_re = new RegExp('three/src/renderers/shaders/ShaderChunk/(.*\\.js)')
-  const chuck_arr = source.match(chunk_re)
+  const chunk_arr = source.match(chunk_re)
 
-  if (chuck_arr) {
-    return path.resolve(tmp_chunk_dir, chuck_arr[1])
+  if (chunk_arr) {
+    return path.resolve(tmp_chunk_dir, chunk_arr[1])
   }
 
   const lib_re = new RegExp('three/src/renderers/shaders/ShaderLib/(.*\\.js)')
@@ -91,7 +91,7 @@ export async function resolve(source, _importer) {
 
 // ----
 
-function rm_block_comment(code) {
+function rm_blockcomments(code) {
   const chars = []
   let at = 0
   while (at < code.length) {
@@ -107,8 +107,8 @@ function rm_block_comment(code) {
 
 
 
-function rm_wsp_and_trailing_line_comment(code) {
-  const delims = '()[]{};,+-*/='
+function rm_wsp_and_linecomments(code) {
+  const delims = '()[]{};,+-*/=<>|&'
   const wsps = ' \t\r\n'
   const chars = []
 
@@ -116,28 +116,42 @@ function rm_wsp_and_trailing_line_comment(code) {
   let head = true
   while (at < code.length) {
 
-    // pragma - put as-is 
+    // pragma - put as-is (rm line comment)
 
     if (head && code[at] === '#') {
       let end = code.indexOf('\n', at)
       end = end === -1
         ? code.length
         : end + 1
-      chars.push(code.substring(at, end))
+
+      const pragma_code = code.substring(at, end)
+      const slashslash_at = pragma_code.indexOf('//')
+      const pragma_end = slashslash_at === -1
+        ? pragma_code.length
+        : slashslash_at
+      chars.push(pragma_code.substring(0, pragma_end), '\n')
+
       at = end
       continue
     }
 
-    // trailing comment
+    // rm line comment '//'
 
     if (code.substring(at, at + 2) === '//') {
-      chars.push('\n')
-      at = code.indexOf('\n', at)
-      head = true
+      const end = code.indexOf('\n', at)
+
+      if (end === -1) { // eof
+        at = code.length
+        head = false
+      } else {
+        chars.push('\n')
+        at = end + 1
+        head = true
+      }
       continue
     }
 
-    // it's safe to eat wsp following a delim
+    // rm wsps in a row `[   0` -> `[0`
 
     if (delims.includes(code[at])) {
       chars.push(code[at])
@@ -159,7 +173,7 @@ function rm_wsp_and_trailing_line_comment(code) {
       continue
     }
 
-    // it's safe to eat all wsp IF next non-wsp is a delim
+    // rm wsps in a row (2) `0   ]` -> `0]`
 
     if (wsps.includes(code[at])) {
       let newline = code[at] === '\n'
@@ -195,17 +209,13 @@ function rm_wsp_and_trailing_line_comment(code) {
 
 function minify_glsl(code) {
 
-  // rm empty lines; 
-  // trim lines; 
-  // rm leading line comments
-
   code = code.split('\n')
-    .map(r => r.trim())
-    .filter(r => r.length && !r.startsWith('//'))
+    .map(r => r.trim()) // trim
+    .filter(r => r.length) // rm empty line
     .join('\n')
 
-  code = rm_block_comment(code)
-  code = rm_wsp_and_trailing_line_comment(code)
+  code = rm_blockcomments(code)
+  code = rm_wsp_and_linecomments(code)
 
   return code
 }

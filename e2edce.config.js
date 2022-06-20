@@ -7,10 +7,10 @@ const common = {
     global_defs: {
       __THREE_DEVTOOLS__: undefined,
       'window.__THREE__': true
-    }
+    },
   },
   mangle: true,
-  minify: true,
+  beautify: false,
   debug: false,
   headless: true,
   port: 8081
@@ -35,15 +35,15 @@ export default {
     },
     {
       ...common,
-      input: 'src/use-examples.js',
-      output: 'public/use-examples/index.build.js',
-      test: 'tests/use-examples.js',
-    },
-    {
-      ...common,
       input: 'src/force-used.js',
       output: 'public/force-used/index.build.js',
       test: 'tests/force-used.js'
+    },
+    {
+      ...common,
+      input: 'src/use-examples.js',
+      output: 'public/use-examples/index.build.js',
+      test: 'tests/use-examples.js',
     },
     {
       ...common,
