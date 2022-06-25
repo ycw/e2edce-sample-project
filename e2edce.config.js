@@ -1,4 +1,6 @@
-import { setup, teardown, resolve } from './e2edce.base.config.js'
+import minify_glsl from 'three-glsl-minifier'
+import * as t from '@babel/types'
+import parser from '@babel/parser'
 
 const common = {
   compress: {
@@ -13,13 +15,39 @@ const common = {
   beautify: false,
   debug: false,
   headless: true,
-  port: 8081
+  port: 8081,
+  /** @type import('@babel/traverse').Visitor */
+  visitor: {
+    ImportDeclaration(path) {
+      if (path.node.source.value === 'three') {
+        path.node.source.value = 'three/src/Three.js'
+      }
+    },
+    StringLiteral(path) {
+      if (path.node.leadingComments?.[0]?.value.trim() === 'glsl') {
+        t.removeComments(path.node)
+        path.node.value = minify_glsl(path.node.value)
+      }
+    },
+    TemplateLiteral(path) {
+      if (path.node.leadingComments?.[0]?.value.trim() === 'glsl') {
+        const src = path.getSource()
+        const glsl = src.substring(1, src.length - 1) // eat backticks
+        const minified = [
+          '`',
+          minify_glsl(glsl),
+          '`'
+        ].join('') 
+        t.removeComments(path.node)
+        path.replaceWith(
+          parser.parse(minified, {}).program.body[0].expression
+        )
+      }
+    }
+  }
 }
 
 export default {
-  setup,
-  teardown,
-  resolve,
   configs: [
     {
       ...common,

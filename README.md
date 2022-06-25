@@ -3,15 +3,9 @@
 A demo project for [ycw/e2edce](https://github.com/ycw/e2edce), showing how to 
 eliminate deadcode for threejs appliaction. 
 
-📝 e2edce.base.config.js - threejs specific configuration. 
-
-- it rewrites import source from `three` to `three/src/Three`, and 
-
-- it minifies glsl sources in shaderchunk/ and shaderlib/.  
+🪚 GLSL sources are now minified using [ycw/three-glsl-minifier](https://github.com/ycw/three-glsl-minifier))
 
 🧪 [Testbed](https://ycw.github.io/e2edce-sample-project)
-
-- open devtools network panel, check size|content-length of 'index.bulid.js' for each test; if you're using chrome browsers, check also its coverage
 
 🔢 Stats:
 
@@ -20,8 +14,8 @@ Logs Vector2
 ┌─────────┬──────────┐
 │ (index) │   size   │
 ├─────────┼──────────┤
-│  flat   │ '6.10Kb' │
-│   dce   │ '1.91Kb' │
+│  flat   │ '5.93Kb' │
+│   dce   │ '1.63Kb' │
 │   min   │  '87b'   │
 │ min+gz  │  '96b'   │
 └─────────┴──────────┘
@@ -30,40 +24,40 @@ Rotating Cube
 ┌─────────┬────────────┐
 │ (index) │    size    │
 ├─────────┼────────────┤
-│  flat   │ '693.53Kb' │
-│   dce   │ '412.68Kb' │
-│   min   │ '218.51Kb' │
-│ min+gz  │ '53.56Kb'  │
+│  flat   │ '701.97Kb' │
+│   dce   │ '409.01Kb' │
+│   min   │ '212.36Kb' │
+│ min+gz  │ '52.96Kb'  │
 └─────────┴────────────┘
 
 Pick Rotating Cube
 ┌─────────┬────────────┐
 │ (index) │    size    │
 ├─────────┼────────────┤
-│  flat   │ '696.50Kb' │
-│   dce   │ '427.08Kb' │
-│   min   │ '226.27Kb' │
-│ min+gz  │ '55.77Kb'  │
+│  flat   │ '705.10Kb' │
+│   dce   │ '423.65Kb' │
+│   min   │ '220.12Kb' │
+│ min+gz  │ '55.19Kb'  │
 └─────────┴────────────┘
 
 webgl_shaders_ocean.html
 ┌─────────┬────────────┐
 │ (index) │    size    │
 ├─────────┼────────────┤
-│  flat   │ '777.52Kb' │
-│   dce   │ '576.02Kb' │
-│   min   │ '307.84Kb' │
-│ min+gz  │ '79.44Kb'  │
+│  flat   │ '788.71Kb' │
+│   dce   │ '568.86Kb' │
+│   min   │ '297.01Kb' │
+│ min+gz  │ '77.73Kb'  │
 └─────────┴────────────┘
 
 cannon-es/examples/threejs_mousepick
 ┌─────────┬────────────┐
 │ (index) │    size    │
 ├─────────┼────────────┤
-│  flat   │ '948.81Kb' │
-│   dce   │ '627.66Kb' │
-│   min   │ '296.49Kb' │
-│ min+gz  │ '75.38Kb'  │
+│  flat   │ '957.42Kb' │
+│   dce   │ '624.32Kb' │
+│   min   │ '290.34Kb' │
+│ min+gz  │ '74.79Kb'  │
 └─────────┴────────────┘
 ```
 
@@ -90,5 +84,6 @@ To test your own codes:
 ## Credits
 
 - [ycw/e2edce](https://github.com/ycw/e2edce)
+- [ycw/three-glsl-minifier](https://github.com/ycw/three-glsl-minifier)
 - [mrdoob/three.js](https://github.com/mrdoob/three.js)
 - [pmndrs/cannon-es](https://github.com/pmndrs/cannon-es)
